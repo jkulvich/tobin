@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/jkulvich/tobin"
   },
+  "bugs": {
+    "url": "https://github.com/jkulvich/tobin/issues"
+  },
   "keywords": [
     "binary",
     "serialization",
