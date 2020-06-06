@@ -39,6 +39,7 @@ jobs:
               NODE_AUTH_TOKEN: $NPM_TOKEN
 
 workflows:
+    version: 2
     build-and-test:
       jobs:
         - build
