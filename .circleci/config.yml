@@ -26,9 +26,8 @@ jobs:
     executor:
       name: node/default
     steps:
-      - checkout
-      - name: pushing
-        uses: actions/setup-node@v1
+      - checkout      
+      - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
