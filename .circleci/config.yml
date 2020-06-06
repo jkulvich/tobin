@@ -23,20 +23,15 @@ jobs:
             - run: yarn
             - run: yarn test
   publish:
-    executor:
-      name: node/default
     steps:
-      - checkout      
+      - attach_workspace:
+          at: ~/repo
       - run:
-          uses: actions/setup-node@v1
-          with:
-            node-version: '12.x'
-            registry-url: 'https://registry.npmjs.org'
-      - run: yarn   
-      - run: 
-          command: yarn publish --new-version $CIRCLE_TAG
-          env:
-            NODE_AUTH_TOKEN: $NPM_TOKEN
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 
 workflows:
     version: 2
