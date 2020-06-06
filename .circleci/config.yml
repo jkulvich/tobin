@@ -45,10 +45,9 @@ workflows:
         - test
     npm-publish:
       jobs:
-        - publish
+        - publish:
             filters:
               branches:
-                only:
-                  - master
+                only: master
               tags:
                 only: /.*/
