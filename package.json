@@ -24,7 +24,8 @@
   "author": "Kulagin Yuri <jkulvichi@gmail.com> (https://twitter.com/jkulvich)",
   "scripts": {
     "build": "tsc -m amd",
-    "test": "ts-mocha -r tsconfig-paths/register -p ./tsconfig.json src/**/*.spec.ts"
+    "test": "ts-mocha -r tsconfig-paths/register -p ./tsconfig.json src/**/*.spec.ts",
+    "doc": "yarn typedoc --out docs/ -m amd --target ES6"
   },
   "dependencies": {},
   "devDependencies": {
