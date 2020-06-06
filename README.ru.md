@@ -51,23 +51,22 @@
 
 # Примеры
 
+Формально:
+```
+tobin.(convert|parse)(S?Byte|U?Int16|U?Int32|U?Int64|Float|Double|Bool|(Short|Fixed)?String)
+```
+
 ```javascript
 import tobin from "tobin"
 
-// Простая конвертация
-tobin.byte(5) // [5]
-tobin.uint16(65535) // [255, 255]
-tobin.int32(500) // [0, 0, 1, 244]
+tobin.convertInt32(500) // [0, 0, 1, 244]
+tobin.convertInt32(-500) // [128, 0, 1, 244]
+tobin.convertUInt16(65535) // [255, 255]
+tobin.convertByte(128) // [128]
+tobin.convertString("Hello") // [104, 101, 108, 108, 111, 0]
+tobin.convertShortString("Hello") // [ 5, 104, 101, 108, 108, 111 ]
 
-// Отрицательные значения
-tobin.int32(-500) // [128, 0, 1, 244]
-
-// Поддержка Little Endian
-tobin.int32(-500, true) // [244, 1, 0, 128]
-
-// Обратная конвертация
-tobin.fromSByte(new Uint8Array([129])) // -1
-
-// Обратная в Little Endian
-tobin.fromInt32(new Uint8Array([4, 3, 2, 1]), true) // 16909060
+tobin.parseSByte(new Uint8Array([129])) // -1
+tobin.parseString(new Uint8Array([104, 101, 108, 108, 111, 0])) // "Hello"
+tobin.parseShortString(new Uint8Array([5, 104, 101, 108, 108, 111])) // "Hello"
 ```
