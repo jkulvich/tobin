@@ -2,8 +2,8 @@
 If you need in stability, please wait for release before use.
 API may be change till release.
 
-- [:ru: RUS](README.ru.md) - Русская документация
-- [:en: ENG](./README.md) - English documentation
+- [:ru: RUS](./README.ru.md) - Русская документация
+- [:uk: ENG](./README.md) - English documentation
 
 # About
 This is small and lightweight library for binary conversion written on TypeScript.
