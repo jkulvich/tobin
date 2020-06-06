@@ -1,0 +1,52 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@1.1.6
+
+jobs:
+  build:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn
+            - run: yarn build
+  test:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: yarn
+            - run: yarn test
+  publish:
+    executor:
+      name: node/default
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: yarn publish --new-version $CIRCLE_TAG
+
+workflows:
+    version: 2
+    build-test-publish:
+      jobs:
+        - build
+        - test
+        - publish:
+            requires:
+              - build
+              - test
+            filters:
+              branches:
+                only: master
+              tags:
+                only: /.*/
