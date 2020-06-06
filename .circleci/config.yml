@@ -5,19 +5,22 @@ orbs:
 
 jobs:
   build:
+    working_directory: ~/repo
     executor:
       name: node/default
-    working_directory: ~/repo
     steps:
       - checkout
       - node/with-cache:
           steps:
             - run: yarn
             - run: yarn build
+      - persist_to_workspace:
+          root: .
+          paths: ~/repo
   test:
+    working_directory: ~/repo
     executor:
       name: node/default
-    working_directory: ~/repo
     steps:
       - checkout
       - node/with-cache:
@@ -25,9 +28,9 @@ jobs:
             - run: yarn
             - run: yarn test
   publish:
+    working_directory: ~/repo
     executor:
-      name: node/default
-    working_directory: ~/repo  
+      name: node/default 
     steps:
       - attach_workspace:
           at: ~/repo
