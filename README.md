@@ -32,21 +32,21 @@ Or it can be used as a part of big binary serialization library.
 
 # Supported types
 
-- [x] byte
-- [x] sbyte
-- [x] int16
-- [x] uint16
-- [x] int32
-- [x] uint32
-- [ ] int64 // ES2020 only with BigInt
-- [ ] uint64 // ES2020 only with BigInt
-- [ ] float
-- [ ] double
-- [x] bool
-- [ ] string
-    - [x] string // Null Terminated String (default)
-    - [x] short-string // Short String (255 bytes max)
-    - [ ] fixed-string // String with fixed size. Null Terminated if less than size
+- [x] Byte
+- [x] SByte
+- [x] Int16
+- [x] UInt16
+- [x] Int32
+- [x] UInt32
+- [ ] Int64 // ES2020 only with BigInt
+- [ ] UInt64 // ES2020 only with BigInt
+- [ ] Float
+- [ ] Double
+- [x] Bool
+- [ ] String
+    - [x] String // Null Terminated String (default)
+    - [x] ShortString // Short String (255 bytes max)
+    - [ ] FixedString // String with fixed size. Null Terminated if less than size
 
 # Examples
 
