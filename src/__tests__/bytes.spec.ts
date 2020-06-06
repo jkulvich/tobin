@@ -1,5 +1,9 @@
+import {DataType} from "@/types";
+
 const assert = require("assert").strict
 import * as bytes from "@/bytes"
+import * as convert from "@/convert"
+import {convertString} from "@/convert";
 
 describe('fromInt', () => {
     [

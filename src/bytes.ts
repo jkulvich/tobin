@@ -2,13 +2,13 @@
 Set of functions for working with bytes
  */
 
-import {assertIntBytesLength, assertInteger, assertIntSize, assertSize} from "@/checks";
+import {assertIntBytesLength, assertInteger, assertIntValue, assertSize} from "@/asserts";
 
 // Returns bytes for integer number
 export function fromInt(num: number, size: number, sign = false, littleEndian = false) {
     assertInteger(num)
     assertSize(size)
-    assertIntSize(num, size, sign)
+    assertIntValue(num, size, sign)
 
     const bytes = new Uint8Array(size)
     for (let i = 0; i < size; i++) {

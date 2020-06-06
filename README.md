@@ -42,11 +42,11 @@ Or it can be used as a part of big binary serialization library.
 - [ ] uint64 // ES2020 only with BigInt
 - [ ] float
 - [ ] double
-- [ ] bool
+- [x] bool
 - [ ] string
-    - [ ] ntstring // Null Terminated String (default)
-    - [ ] shstring // Short String (255 bytes max)
-    - [ ] fxstring // String with fixed size. Null Terminated if less than size
+    - [x] string // Null Terminated String (default)
+    - [x] short-string // Short String (255 bytes max)
+    - [ ] fixed-string // String with fixed size. Null Terminated if less than size
 
 # Examples
 

@@ -18,7 +18,7 @@ export function assertInteger(num: number) {
 }
 
 // Checks that the value in the size
-export function assertIntSize(num: number, size: number, sign = false) {
+export function assertIntValue(num: number, size: number, sign = false) {
     const fullBits = 256 ** size - 1
     const max = sign ? (fullBits / 2) | 0 : fullBits
     const min = sign ? -(max + 1) : 0
