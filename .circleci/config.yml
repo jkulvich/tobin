@@ -52,4 +52,4 @@ workflows:
               branches:
                 only: master
               tags:
-                only: /^\d+\.\d+\.\d+/
+                only: /^v.*/
