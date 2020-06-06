@@ -43,10 +43,12 @@ workflows:
   build-test-publish:
     jobs:
       - build
-      - test
+      - test:
+          filters:
+            tags:
+              only: /.*/
       - publish:
           requires:
-            - build
             - test
           filters:
             tags:
