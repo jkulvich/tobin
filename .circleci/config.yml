@@ -13,6 +13,9 @@ jobs:
           steps:
             - run: yarn
             - run: yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
   test:
     executor:
       name: node/default
@@ -23,7 +26,8 @@ jobs:
             - run: yarn
             - run: yarn test
   publish:
-    <<: *defaults
+    executor:
+      name: node/default
     steps:
       - attach_workspace:
           at: ~/repo
@@ -45,4 +49,4 @@ workflows:
               branches:
                 only: master
               tags:
-                only: /.*/
+                only: /^\d+\.\d+\.\d+/
