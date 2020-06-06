@@ -23,6 +23,8 @@ jobs:
             - run: yarn
             - run: yarn test
   publish:
+    executor:
+      name: node/default
     steps:
       - attach_workspace:
           at: ~/repo
