@@ -30,7 +30,7 @@ jobs:
   publish:
     working_directory: ~/repo
     executor:
-      name: node/default 
+      name: node/default
     steps:
       - attach_workspace:
           at: ~/repo
@@ -39,17 +39,17 @@ jobs:
       - run: npm publish
 
 workflows:
-    version: 2
-    build-test-publish:
-      jobs:
-        - build
-        - test
-        - publish:
-            requires:
-              - build
-              - test
-            filters:
-              tags:
-                only: /^v.*/
-              branches:
-                ignore: /.*/
+  version: 2
+  build-test-publish:
+    jobs:
+      - build
+      - test
+      - publish:
+          requires:
+            - build
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
