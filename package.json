@@ -1,6 +1,10 @@
 {
   "name": "tobin",
+<<<<<<< HEAD
   "version": "0.1.1",
+=======
+  "version": "0.1.2",
+>>>>>>> rc
   "description": "Library for binary conversion",
   "homepage": "https://github.com/jkulvich/tobin",
   "license": "MIT",
@@ -17,7 +21,9 @@
     "casting",
     "marshaling",
     "types",
-    "typescript"
+    "typescript",
+    "int32",
+    "bytes"
   ],
   "author": "Kulagin Yuri <jkulvichi@gmail.com> (https://twitter.com/jkulvich)",
   "scripts": {
