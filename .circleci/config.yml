@@ -28,15 +28,15 @@ jobs:
     steps:
       - checkout
       - node/with-cache:
-        steps:
-          - uses: actions/setup-node@v1
-            with:
-              node-version: '12.x'
-              registry-url: 'https://registry.npmjs.org'
-          - run: yarn   
-          - run: yarn publish --new-version $CIRCLE_TAG
-            env:
-              NODE_AUTH_TOKEN: $NPM_TOKEN
+          steps:
+            - uses: actions/setup-node@v1
+              with:
+                node-version: '12.x'
+                registry-url: 'https://registry.npmjs.org'
+            - run: yarn   
+            - run: yarn publish --new-version $CIRCLE_TAG
+              env:
+                NODE_AUTH_TOKEN: $NPM_TOKEN
 
 workflows:
     version: 2
@@ -46,4 +46,9 @@ workflows:
         - test
     npm-publish:
       jobs:
-        - publish
+        - publish:
+            filters:
+              branches:
+                only: master
+              tags:
+                only: /.*/
