@@ -1,35 +1,72 @@
-/*
-Set of functions for integer numbers conversion
- */
-
 import * as bytes from "@/bytes"
+import {assertIntBytesLength} from "@/checks";
 
-// Casts unsigned byte to Uint8Array
-export function byte(num: number) {
-    return bytes.getIntBytes(num, 1)
-}
+export default class ToBin {
 
-// Casts signed byte to Uint8Array
-export function sbyte(num: number) {
-    return bytes.getIntBytes(num, 1, true)
-}
+    // Casts unsigned byte to Uint8Array
+    static byte(num: number, littleEndian = false) {
+        return bytes.fromInt(num, 1, false, littleEndian)
+    }
 
-// Casts signed int16 to Uint8Array
-export function int16(num: number) {
-    return bytes.getIntBytes(num, 2, true)
-}
+    // Casts bytes to unsigned byte
+    static fromByte(data: Uint8Array, littleEndian = false) {
+        assertIntBytesLength(data, 1)
+        return bytes.toInt(data, false, littleEndian)
+    }
 
-// Casts unsigned int16 to Uint8Array
-export function uint16(num: number) {
-    return bytes.getIntBytes(num, 2)
-}
+    // Casts signed byte to Uint8Array
+    static sbyte(num: number, littleEndian = false) {
+        return bytes.fromInt(num, 1, true, littleEndian)
+    }
 
-// Casts signed int32 to Uint8Array
-export function int32(num: number) {
-    return bytes.getIntBytes(num, 4, true)
-}
+    // Casts bytes to signed byte
+    static fromSByte(data: Uint8Array, littleEndian = false) {
+        assertIntBytesLength(data, 1)
+        return bytes.toInt(data, true, littleEndian)
+    }
 
-// Casts unsigned int32 to Uint8Array
-export function uint32(num: number) {
-    return bytes.getIntBytes(num, 4)
+    // Casts signed int16 to Uint8Array
+    static int16(num: number, littleEndian = false) {
+        return bytes.fromInt(num, 2, true, littleEndian)
+    }
+
+    // Casts bytes to signed int16
+    static fromInt16(data: Uint8Array, littleEndian = false) {
+        assertIntBytesLength(data, 2)
+        return bytes.toInt(data, true, littleEndian)
+    }
+
+    // Casts unsigned int16 to Uint8Array
+    static uint16(num: number, littleEndian = false) {
+        return bytes.fromInt(num, 2, false, littleEndian)
+    }
+
+    // Casts bytes to unsigned int16
+    static fromUInt16(data: Uint8Array, littleEndian = false) {
+        assertIntBytesLength(data, 2)
+        return bytes.toInt(data, false, littleEndian)
+    }
+
+    // Casts signed int32 to Uint8Array
+    static int32(num: number, littleEndian = false) {
+        return bytes.fromInt(num, 4, true, littleEndian)
+    }
+
+    // Casts bytes to signed int32
+    static fromInt32(data: Uint8Array, littleEndian = false) {
+        assertIntBytesLength(data, 2)
+        return bytes.toInt(data, true, littleEndian)
+    }
+
+    // Casts unsigned int32 to Uint8Array
+    static uint32(num: number, littleEndian = false) {
+        return bytes.fromInt(num, 4, false, littleEndian)
+    }
+
+    // Casts bytes to unsigned int32
+    static fromUInt32(data: Uint8Array, littleEndian = false) {
+        assertIntBytesLength(data, 2)
+        return bytes.toInt(data, false, littleEndian)
+    }
+
 }

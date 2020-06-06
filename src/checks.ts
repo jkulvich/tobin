@@ -26,3 +26,13 @@ export function assertIntSize(num: number, size: number, sign = false) {
     if (num < min || num > max)
         throw new CheckError(`incorrect num: expected value from ${min} to ${max}, got: ${num}`)
 }
+
+// Checks that the bytes array length between 1 and 4 or fixed size
+export function assertIntBytesLength(bytes: Uint8Array, size?: number) {
+    if (size && bytes.length !== size) {
+        throw new CheckError(`incorrect bytes length: expected ${size}, got: ${bytes.length}`)
+    }
+
+    if (bytes.length < 1 || bytes.length > 4)
+        throw new CheckError(`incorrect bytes length: expected length from 1 to 4, got: ${bytes.length}`)
+}
