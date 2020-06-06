@@ -11,8 +11,8 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
-            - run: npm run build
+            - run: yarn
+            - run: yarn build
   test:
     executor:
       name: node/default
@@ -20,11 +20,35 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
-            - run: npm run test
+            - run: yarn
+            - run: yarn test
+  publish:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+        steps:
+          - uses: actions/setup-node@v1
+            with:
+              node-version: '12.x'
+              registry-url: 'https://registry.npmjs.org'
+          - run: yarn   
+          - run: yarn publish --new-version $CIRCLE_TAG
+            env:
+              NODE_AUTH_TOKEN: $NPM_TOKEN
 
 workflows:
     build-and-test:
       jobs:
         - build
-        - test                
+        - test
+    npm-publish:
+      jobs:
+        - publish
+            filters:
+              branches:
+                only:
+                  - master
+              tags:
+                only: /.*/
