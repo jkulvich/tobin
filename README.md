@@ -1,12 +1,27 @@
-# Library for binary conversion
-The small library for binary types casting written on TypeScript.  
+# :construction: Please, wait for release
+If you need in stability, please wait for release before use.
+API may be change till release.
+
+- [:ru: RUS](README.ru.md) - Русская документация
+- [:en: ENG](./README.md) - English documentation
+
+# About
+This is small and lightweight library for binary conversion written on TypeScript.
+The library allows creating and parsing binary structures.
+
+Or it can be used as a part of big binary serialization library.  
+(P.S. Coming soon)
 
 # Installation
+:cat2: with **yarn**:  
 `yarn add tobin`
 
+:wrench: with **npm**:  
+`npm i tobin`
+
 # Repo and issues
-repo: https://github.com/jkulvich/tobin  
-issues: https://github.com/jkulvich/tobin/issues
+:floppy_disk: repo: https://github.com/jkulvich/tobin  
+:speech_balloon: issues: https://github.com/jkulvich/tobin/issues
 
 # Supported types
 
@@ -19,7 +34,7 @@ issues: https://github.com/jkulvich/tobin/issues
 - [ ] int64 // ES2020 only with BigInt
 - [ ] uint64 // ES2020 only with BigInt
 - [ ] float
-- [ ] double // ES2020 only with BigInt
+- [ ] double
 - [ ] bool
 - [ ] string
     - [ ] ntstring // Null Terminated String (default)
