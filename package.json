@@ -1,12 +1,15 @@
 {
   "name": "tobin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Library for binary conversion",
   "homepage": "https://github.com/jkulvich/tobin",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/jkulvich/tobin"
+  },
+  "bugs": {
+    "url": "https://github.com/jkulvich/tobin/issues"
   },
   "keywords": [
     "binary",
@@ -18,10 +21,18 @@
   ],
   "author": "Kulagin Yuri <jkulvichi@gmail.com> (https://twitter.com/jkulvich)",
   "scripts": {
-    "build": "yarn tsc"
+    "build": "tsc -m amd",
+    "test": "ts-mocha -r tsconfig-paths/register -p ./tsconfig.json src/**/*.spec.ts"
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.11",
+    "assert": "^2.0.0",
+    "mocha": "^7.2.0",
+    "ts-mocha": "^7.0.0",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.5"
   }
 }
