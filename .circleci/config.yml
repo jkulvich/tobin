@@ -7,18 +7,17 @@ jobs:
   build:
     executor:
       name: node/default
+    working_directory: ~/repo
     steps:
       - checkout
       - node/with-cache:
           steps:
             - run: yarn
             - run: yarn build
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
   test:
     executor:
       name: node/default
+    working_directory: ~/repo
     steps:
       - checkout
       - node/with-cache:
@@ -28,6 +27,7 @@ jobs:
   publish:
     executor:
       name: node/default
+    working_directory: ~/repo  
     steps:
       - attach_workspace:
           at: ~/repo
