@@ -27,10 +27,7 @@ jobs:
       name: node/default
     steps:
       - checkout      
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
+      - action: setup-node@v1
       - run: yarn   
       - run: yarn publish --new-version $CIRCLE_TAG
         env:
