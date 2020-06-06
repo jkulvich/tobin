@@ -17,7 +17,9 @@
     "casting",
     "marshaling",
     "types",
-    "typescript"
+    "typescript",
+    "int32",
+    "bytes"
   ],
   "author": "Kulagin Yuri <jkulvichi@gmail.com> (https://twitter.com/jkulvich)",
   "scripts": {
