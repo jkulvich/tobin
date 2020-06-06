@@ -1,3 +1,10 @@
+[![CircleCI](https://circleci.com/gh/jkulvich/tobin.svg)](https://circleci.com/gh/jkulvich/tobin)
+[![Master Version](https://img.shields.io/github/package-json/v/jkulvich/tobin/master.svg?style=flat-square)](https://github.com/jkulvich/tobin)
+[![GitHub](https://img.shields.io/github/license/jkulvich/tobin?style=flat-square)](https://github.com/jkulvich/tobin/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/jkulvich/tobin?style=flat-square)](https://github.com/jkulvich/tobin/issues)
+[![npm](https://img.shields.io/npm/dw/tobin?style=flat-square)](https://www.npmjs.com/package/tobin)
+[![GitHub top language](https://img.shields.io/github/languages/top/jkulvich/tobin?style=flat-square)](https://github.com/jkulvich/tobin)
+
 # :construction: Ожидайте релиз
 Если вам важна стабильность и последовательность библиотеки,
 подождите релиза. Сейчас API может меняться.
