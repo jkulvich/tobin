@@ -121,24 +121,19 @@
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h1>Examples</h1>
 				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> tobin <span class="hljs-keyword">from</span> <span class="hljs-string">"tobin"</span>
+				<p>Formal:</p>
+				<pre><code>tobin.(convert|<span class="hljs-type">parse</span>)(S?Byte|<span class="hljs-type">U</span>?Int16|<span class="hljs-type">U</span>?Int32|<span class="hljs-type">U</span>?Int64|<span class="hljs-type">Float</span>|<span class="hljs-type">Double</span>|<span class="hljs-type">Bool</span>|<span class="hljs-type">(Short</span>|<span class="hljs-type">Fixed</span>)?String)</code></pre><pre><code class="language-javascript"><span class="hljs-keyword">import</span> tobin <span class="hljs-keyword">from</span> <span class="hljs-string">"tobin"</span>
 
-<span class="hljs-comment">// Simple conversion</span>
-tobin.byte(<span class="hljs-number">5</span>) <span class="hljs-comment">// [5]</span>
-tobin.uint16(<span class="hljs-number">65535</span>) <span class="hljs-comment">// [255, 255]</span>
-tobin.int32(<span class="hljs-number">500</span>) <span class="hljs-comment">// [0, 0, 1, 244]</span>
+tobin.convertInt32(<span class="hljs-number">500</span>) <span class="hljs-comment">// [0, 0, 1, 244]</span>
+tobin.convertInt32(<span class="hljs-number">-500</span>) <span class="hljs-comment">// [128, 0, 1, 244]</span>
+tobin.convertUInt16(<span class="hljs-number">65535</span>) <span class="hljs-comment">// [255, 255]</span>
+tobin.convertByte(<span class="hljs-number">128</span>) <span class="hljs-comment">// [128]</span>
+tobin.convertString(<span class="hljs-string">"Hello"</span>) <span class="hljs-comment">// [104, 101, 108, 108, 111, 0]</span>
+tobin.convertShortString(<span class="hljs-string">"Hello"</span>) <span class="hljs-comment">// [ 5, 104, 101, 108, 108, 111 ]</span>
 
-<span class="hljs-comment">// Negative values</span>
-tobin.int32(<span class="hljs-number">-500</span>) <span class="hljs-comment">// [128, 0, 1, 244]</span>
-
-<span class="hljs-comment">// Little Endian support</span>
-tobin.int32(<span class="hljs-number">-500</span>, <span class="hljs-literal">true</span>) <span class="hljs-comment">// [244, 1, 0, 128]</span>
-
-<span class="hljs-comment">// Reverse conversion</span>
-tobin.fromSByte(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>([<span class="hljs-number">129</span>])) <span class="hljs-comment">// -1</span>
-
-<span class="hljs-comment">// Little Endian also</span>
-tobin.fromInt32(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>([<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]), <span class="hljs-literal">true</span>) <span class="hljs-comment">// 16909060</span></code></pre>
+tobin.parseSByte(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>([<span class="hljs-number">129</span>])) <span class="hljs-comment">// -1</span>
+tobin.parseString(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>([<span class="hljs-number">104</span>, <span class="hljs-number">101</span>, <span class="hljs-number">108</span>, <span class="hljs-number">108</span>, <span class="hljs-number">111</span>, <span class="hljs-number">0</span>])) <span class="hljs-comment">// "Hello"</span>
+tobin.parseShortString(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Uint8Array</span>([<span class="hljs-number">5</span>, <span class="hljs-number">104</span>, <span class="hljs-number">101</span>, <span class="hljs-number">108</span>, <span class="hljs-number">108</span>, <span class="hljs-number">111</span>])) <span class="hljs-comment">// "Hello"</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

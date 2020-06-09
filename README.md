@@ -69,3 +69,5 @@ tobin.parseSByte(new Uint8Array([129])) // -1
 tobin.parseString(new Uint8Array([104, 101, 108, 108, 111, 0])) // "Hello"
 tobin.parseShortString(new Uint8Array([5, 104, 101, 108, 108, 111])) // "Hello"
 ```
+
+# Performance
