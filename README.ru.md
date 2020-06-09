@@ -33,21 +33,21 @@
 
 # Поддерживаемые типы
 
-- [x] byte
-- [x] sbyte
-- [x] int16
-- [x] uint16
-- [x] int32
-- [x] uint32
-- [ ] int64 // Только ES2020 с BigInt
-- [ ] uint64 // Только ES2020 с BigInt
-- [ ] float
-- [ ] double
-- [x] bool
-- [ ] string
-    - [x] string // Строка завершающаяся null символом (стандартная)
-    - [x] short-string // Короткая строка (максимум 255 байт)
-    - [ ] fixed-string // Строка фиксированного размера. Завершается null, если короче размера
+- [x] Byte
+- [x] SByte
+- [x] Int16
+- [x] UInt16
+- [x] Int32
+- [x] UInt32
+- [ ] Int64 // Только ES2020 с BigInt
+- [ ] UInt64 // Только ES2020 с BigInt
+- [ ] Float
+- [ ] Double
+- [x] Bool
+- [ ] String
+    - [x] String // Строка завершающаяся null символом (стандартная)
+    - [x] ShortString // Короткая строка (максимум 255 байт)
+    - [ ] FixedString // Строка фиксированного размера. Завершается null, если короче размера
 
 # Примеры
 
